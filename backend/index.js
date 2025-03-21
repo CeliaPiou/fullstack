@@ -1,3 +1,4 @@
+const cors = require('cors')
 const express = require('express')
 const app = express()
 
@@ -29,6 +30,7 @@ const requestLogger = (request, response, next) => {
 
 app.use(express.json())
 app.use(requestLogger)
+app.use(cors())
 
 app.get('/', (request, response) => {
   response.send('<h1>Hello World!</h1>')
